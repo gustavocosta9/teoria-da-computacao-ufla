@@ -1,3 +1,6 @@
+// Autor: Gustavo Costa (2024)
+// Universidade Federal de Lavras
+
 import java.util.Objects;
 
 public class Chave<String1, String2> {
