@@ -1,3 +1,7 @@
+// Autor do código: Gustavo Costa (2024)
+// Universidade Federal de Lavras
+
+
 import java.util.Scanner;
 
 
