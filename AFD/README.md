@@ -100,6 +100,8 @@ Nada de diferente do padrão para a criação de uma tupla em Java, consiste ape
 
 ## Exemplo de uso⚙️
 
+### Exemplo 01
+
 L = palavras sobre {a,b} que começam e terminam com 'a' e possuem pelo menos um 'b'.
 
 <img src="https://i.ibb.co/rwHBzH9/Captura-de-tela-2024-03-26-092314.png">
@@ -113,6 +115,18 @@ Inserção dos dados do AFD, atente-se para as funções de transição e os est
 Agora é o momento da verificação da palavra digitada pelo usuário, vamos olhar algumas palavras inseridas e seus respectivos resultados.
 
 <img src="https://i.ibb.co/ygvvS2x/Captura-de-tela-2024-03-26-093112.png">
+
+### Exemplo 02
+
+L = palavras sobre {a,b} que contém 'aa' ou 'bb'.
+
+Inserção do AFD no terminal.
+
+<img src="https://i.ibb.co/KwZW2gp/Captura-de-tela-2024-03-26-095620.png">
+
+Verificação de palavras digitadas pelo usuário.
+
+<img src="https://i.ibb.co/W6zS8Rw/Captura-de-tela-2024-03-26-095917.png">
 
 
 ****
