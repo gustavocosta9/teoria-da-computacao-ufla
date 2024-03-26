@@ -16,6 +16,8 @@ Seja w = a1a2 ... an uma cadeia de símbolos sobre o alfabeto Σ, O autômato M 
 - ri+1 = δ(ri, ai+1), para i = 0, ..., n−1
 - rn ∈ F.
 
+Em outras palavras, a primeira condição afirma que a máquina se inicia no estado inicial q0. A segunda condição diz que, dado cada símbolo da entrada w, a máquina transita de estado em estado de acordo com a função de transição δ. A terceira e última condição diz que a máquina aceita w se somente se o último símbolo da entrada leva o autômato a parar em um estado f tal que f ∈ F. Caso contrário, diz-se que a máquina rejeita a entrada. O conjunto de cadeias que M aceita é chamado Linguagem reconhecida por M e é simbolicamente representado por L(M).
+
 *fonte: Wikipédia.*
 
 ****
@@ -75,7 +77,45 @@ Agora, há os métodos criados para tratamento das entradas digitadas pelo usuá
 
 <img src="https://i.ibb.co/F6bbLDY/Captura-de-tela-2024-03-26-004610.png">
 
+Após esses métodos de tratamento, há o método de recebimento das funções de transição pelo usuário via terminal, como dito anteriormente, é passado o scanner como parâmetro para que seja possível realizar as entradas e para não ocasionar em problemas de *memory leakage* ou problemas como *NullExceptionPointer* só foi utilizado um scanner em todo o código.
+A lógica é a seguinte: após a coleta dos estados e do alfabeto, há um for aninhado para que seja construída toda combinação possível de (estadoAtual, símbolo). Dessa forma, com as tuplas formadas, o usuário digitará qual será o *estado destino* correspondente à tupla informada naquele momento. Vale ressaltar também, que caso não haja nenhum estado Destino para tal combinação, o usuário deverá digitar *'none'* indicando que não há transição para aquele estado ao receber tal símbolo. Para cada iteração aninhada, será instanciada uma chave do tipo Chave (que é uma tupla) cujo nome da chave será a **combinação** do estado atual e do simbolo atual, no próximo passo, basta realizar o tratamento: caso o usuário digite *'none'* coloque o no **Map funcoesTransicao** a chave criada e como valor uma String vazia, se não, coloque a chave criada e o estado Destino.
 
+<img src="https://i.ibb.co/qR6L6b4/Captura-de-tela-2024-03-26-085510.png">
+
+Por fim, o método da classe *verificacao* recebe uma palavra digitada pelo usuário, é o método responsável por realizar o reconhecimento ou a rejeição da palavra. A lógica por trás desse método é: 
+
+- Inicialize o estadoAtual com o mesmo valor do estadoInicial;
+- converta a palavra do usuário para um vetor de char, após isso, percorra char a char, formando combinações de chave do estadoAtual e do char 'c' guardando os valores na variável proximoEstado;
+-  caso o próximo estado seja 'none', significa que não há transição do estadoAtual para outro, então rejeite a palavra;
+-  caso haja transição válida, atualize o estadoAtual com o valor do próximoEstado que acabou de ser verificado;
+-  após todas as iterações, se no conjunto de estados finais há o último valor armazenado na variável estadoAtual (que representa, supostamente, o estado final) aceite a palavra;
+-  caso contrário, rejeite a palavra.
+
+<img src="https://i.ibb.co/b7grVV2/Captura-de-tela-2024-03-26-090618.png">
+
+### Chave.java
+
+Nada de diferente do padrão para a criação de uma tupla em Java, consiste apenas na classe do tipo tupla que receberá dois valores que será a chave de um elemento do Map.
+
+
+## Exemplo de uso⚙️
+
+L = palavras sobre {a,b} que começam e terminam com 'a' e possuem pelo menos um 'b'.
+
+<img src="https://i.ibb.co/rwHBzH9/Captura-de-tela-2024-03-26-092314.png">
+
+**Vamos construir esse AFD no programa:**
+
+Inserção dos dados do AFD, atente-se para as funções de transição e os estados, como utilizei a interface HashMap ela não conserva a ordem de inserção de estados no terminal!
+
+<img src="https://i.ibb.co/QXc3721/Captura-de-tela-2024-03-26-092732.png">
+
+Agora é o momento da verificação da palavra digitada pelo usuário, vamos olhar algumas palavras inseridas e seus respectivos resultados.
+
+<img src="https://i.ibb.co/ygvvS2x/Captura-de-tela-2024-03-26-093112.png">
+
+
+****
 
 ## Projeto Java 📁
 
