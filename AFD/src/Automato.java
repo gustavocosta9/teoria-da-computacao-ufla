@@ -1,4 +1,5 @@
-
+// Autor: Gustavo Costa (2024)
+// Universidade Federal de Lavras
 
 import java.util.HashSet; //Importação de conjuntos para: Estados da máquina, simbolos.
 import java.util.Set;
